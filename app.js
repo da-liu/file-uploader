@@ -11,7 +11,7 @@ var credentials = require('./credentials.js');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var analysis = require('./routes/analysis')
-// var upload = require('./routes/upload');
+var upload = require('./routes/upload');
 
 var app = express();
 
@@ -34,16 +34,17 @@ app.use('/analysis', analysis);
 // app.use('/upload', upload);
 
 app.use('/upload', function(req, res, next) {
-	var now = Date.now();
-	jqupload.fileHandler({
-		uploadDir: function() {
-			return __dirname + '/public/uploads/' + now;
-		},
-		uploadUrl: function() {
-			return '/uploads/' + now;
-		}
-	})(req, res, next);
+  var now = Date.now();
+  jqupload.fileHandler({
+    uploadDir: function() {
+      return __dirname + '/public/uploads/' + now;
+    },
+    uploadUrl: function() {
+      return '/uploads/' + now;
+    }
+  })(req, res, next);
 })
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
