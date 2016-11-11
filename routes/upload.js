@@ -6,7 +6,10 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-  res.render('upload', {title: "Upload File"});
+  res.render('upload', {
+  	isAuthenticated : req.isAuthenticated(),
+  	title: "Upload File"
+  });
 
 });
 

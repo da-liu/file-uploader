@@ -3,12 +3,11 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	var now = new Date();
-	res.render('upload', { 
-		isAuthenticated : req.isAuthenticated(),
-		title: "File Upload" 
-	});
-
+	res.send("Get is working");
 });
+
+router.post('/', function(req, res, next) {
+	res.send("Post is working");
+})
 
 module.exports = router;

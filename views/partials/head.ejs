@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= title %></title>
+  <title>EpigenCentral</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
@@ -28,7 +28,11 @@
           <li><a href="/">Upload</a></li>
           <li><a href="/analysis">Analysis</a></li>
         </ul>
-        <button type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
+        <% if (isAuthenticated) { %> 
+          <a class="btn btn-default navbar-btn navbar-right" href="/logout" style="text-decoration: none;">Log out</a>
+        <% } else { %> 
+          <a class="btn btn-default navbar-btn navbar-right" href="/login" style="text-decoration: none;">Log in</a>
+        <% } %>
       </div><!-- /.navbar-collapse -->
 
     </div><!-- /.container -->
