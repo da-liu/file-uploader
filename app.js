@@ -45,7 +45,6 @@ var upload    = require('./routes/upload');
 app.use('/', index);
 app.use('/users', users);
 app.use('/analysis', analysis);
-app.use('/tr', require('./routes/tr'));
 app.use('/upload', upload);
 
 app.use('/upload', function(req, res, next) {
